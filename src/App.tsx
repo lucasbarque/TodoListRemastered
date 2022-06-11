@@ -1,13 +1,13 @@
 import './global.css';
 import { Header } from './components/Header';
-import { Tasks } from './components/Tasks';
+import { TaskList } from './components/TaskList';
 
 function App() {
   return (
     <>
       <Header />
       <div className='container'>
-        <Tasks />
+        <TaskList />
       </div>
     </>
   );

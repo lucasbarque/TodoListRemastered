@@ -1,0 +1,62 @@
+.container {
+  background-color: var(--gray-500);
+  border: 1px solid var(--gray-400);
+
+  display: flex;
+  align-items: flex-start;
+  gap: 0.938rem;
+
+  padding: 1rem;
+  border-radius: 8px;
+  ;
+}
+
+.container+.container {
+  margin-top: 0.75rem;
+}
+
+.container .text {
+  color: var(--gray-100);
+  line-height: 1.225rem;
+}
+
+.container .textChecked {
+  text-decoration: line-through;
+  color: var(--gray-300)
+}
+
+.container .delete {
+  color: var(--gray-300);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+
+  transition: .2s;
+}
+
+.container .delete:hover {
+  background: var(--gray-400);
+  color: var(--danger)
+}
+
+.container .checkbox {
+  width: 24px;
+  height: 24px;
+  background: url('../assets/check-unchecked-default.svg') no-repeat center center;
+  transition: background .2s;
+}
+
+.container .checkbox:hover {
+  background: url('../assets/check-unchecked-hover.svg') no-repeat center center;
+}
+
+.container .checkChecked {
+  background: url('../assets/check-checked-default.svg') no-repeat center center;
+}
+
+.container .checkChecked:hover {
+  background: url('../assets/check-checked-hover.svg') no-repeat center center;
+}

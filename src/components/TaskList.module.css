@@ -1,6 +1,7 @@
 .container {
   display: flex;
   justify-content: space-between;
+  margin-top: 5.688rem;
 }
 
 .container div {
@@ -23,4 +24,23 @@
   padding: 0.125rem 0.5rem;
   border-radius: 20px;
   color: var(--gray-200);
+}
+
+.taskList {
+  margin-top: 1.5rem;
+}
+
+.emptyTasks {
+  text-align: center;
+  padding-top: 4rem;
+  color: var(--gray-300);
+  border-top: 1px solid var(--gray-400)
+}
+
+.emptyTasks h2 {
+  margin-top: 1rem;
+}
+
+.emptyTasks p {
+  font-weight: 400;
 }
