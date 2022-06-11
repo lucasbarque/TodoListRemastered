@@ -3,11 +3,13 @@ import styles from './TaskList.module.css';
 import isEmptyImg from '../assets/is-empty.svg';
 
 import { Task } from './Task';
+import { NewTask } from './NewTask';
 
 export function TaskList() {
   const isEmptyTask = false;
   return (
     <>
+      <NewTask />
       <div className={styles.container}>
         <div>
           <div className={styles.titlePrimary}>Tarefas criadas</div>
