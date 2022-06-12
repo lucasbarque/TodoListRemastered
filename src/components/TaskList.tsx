@@ -4,31 +4,49 @@ import isEmptyImg from '../assets/is-empty.svg';
 
 import { Task } from './Task';
 import { NewTask } from './NewTask';
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+
+interface TaskProps {
+  id: string;
+  title: string;
+  isCompleted: boolean;
+}
 
 export function TaskList() {
-  const isEmptyTask = false;
+  const [tasks, setTasks] = useState<TaskProps[]>([]);
+
+  function createNewTask(title: string) {
+    setTasks([...tasks, { id: uuidv4(), title, isCompleted: false }]);
+  }
+
   return (
     <>
-      <NewTask />
+      <NewTask newTask={createNewTask} />
       <div className={styles.container}>
         <div>
           <div className={styles.titlePrimary}>Tarefas criadas</div>
-          <div className={styles.badge}>5</div>
+          <div className={styles.badge}>{tasks.length}</div>
         </div>
 
         <div>
           <div className={styles.titleSecondary}>Concluídas</div>
-          <div className={styles.badge}>2 de 5</div>
+          <div className={styles.badge}>2 de {tasks.length}</div>
         </div>
       </div>
       <div className={styles.taskList}>
-        {!isEmptyTask ? (
+        {tasks.length > 0 ? (
           <>
-            <Task />
-            <Task />
-            <Task />
-            <Task />
-            <Task />
+            {tasks.map((task) => (
+              <Task
+                key={task.id}
+                title={task.title}
+                isCompleted={task.isCompleted}
+                onComplete={() => { }}
+                onDelete={() => { }}
+              />
+            ))}
           </>
         ) : (
           <div className={styles.emptyTasks}>

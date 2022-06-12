@@ -18,6 +18,7 @@
 .container .text {
   color: var(--gray-100);
   line-height: 1.225rem;
+  width: 100%;
 }
 
 .container .textChecked {
