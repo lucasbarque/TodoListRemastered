@@ -30,6 +30,15 @@ export function TaskList() {
     }));
   }
 
+  function deleteTask(id: string) {
+    const newTasks = tasks.filter(task => task.id !== id);
+    setTasks(newTasks);
+  }
+
+  function getCountOfCompletedTasks() {
+    return tasks.filter(task => task.isCompleted).length;
+  }
+
   return (
     <>
       <NewTask newTask={createNewTask} />
@@ -41,7 +50,7 @@ export function TaskList() {
 
         <div>
           <div className={styles.titleSecondary}>Concluídas</div>
-          <div className={styles.badge}>2 de {tasks.length}</div>
+          <div className={styles.badge}>{getCountOfCompletedTasks()} de {tasks.length}</div>
         </div>
       </div>
       <div className={styles.taskList}>
@@ -52,7 +61,7 @@ export function TaskList() {
                 key={task.id}
                 task={task}
                 onComplete={changeTaskStatus}
-                onDelete={() => { }}
+                onDelete={deleteTask}
               />
             ))}
           </>

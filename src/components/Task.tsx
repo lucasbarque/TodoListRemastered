@@ -10,7 +10,7 @@ interface TaskProps {
     isCompleted: boolean;
   }
   onComplete: (id: string) => void;
-  onDelete: () => void;
+  onDelete: (id: string) => void;
 }
 
 export function Task({ task, onComplete, onDelete }: TaskProps) {
@@ -19,6 +19,10 @@ export function Task({ task, onComplete, onDelete }: TaskProps) {
   function handleToggleTaskStatus() {
     setIsComplete(!isComplete);
     onComplete(task.id);
+  }
+
+  function handleDeletetask() {
+    onDelete(task.id);
   }
 
   return (
@@ -31,7 +35,7 @@ export function Task({ task, onComplete, onDelete }: TaskProps) {
         {task.title}
       </div>
       <div className={styles.delete}>
-        <Trash size={20} />
+        <Trash size={20} onClick={handleDeletetask} />
       </div>
     </div>
   );
