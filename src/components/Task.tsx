@@ -4,17 +4,21 @@ import { useState } from 'react';
 import styles from './Task.module.css';
 
 interface TaskProps {
-  title: string;
-  isCompleted: boolean;
-  onComplete: () => void;
+  task: {
+    id: string;
+    title: string;
+    isCompleted: boolean;
+  }
+  onComplete: (id: string) => void;
   onDelete: () => void;
 }
 
-export function Task({ title, isCompleted = false, onComplete, onDelete }: TaskProps) {
-  const [isComplete, setIsComplete] = useState(isCompleted);
+export function Task({ task, onComplete, onDelete }: TaskProps) {
+  const [isComplete, setIsComplete] = useState(task.isCompleted);
 
   function handleToggleTaskStatus() {
     setIsComplete(!isComplete);
+    onComplete(task.id);
   }
 
   return (
@@ -24,7 +28,7 @@ export function Task({ title, isCompleted = false, onComplete, onDelete }: TaskP
         onClick={handleToggleTaskStatus}
       ></div>
       <div className={`${styles.text} ${isComplete && styles.textChecked}`}>
-        {title}
+        {task.title}
       </div>
       <div className={styles.delete}>
         <Trash size={20} />

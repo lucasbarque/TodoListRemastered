@@ -21,6 +21,15 @@ export function TaskList() {
     setTasks([...tasks, { id: uuidv4(), title, isCompleted: false }]);
   }
 
+  function changeTaskStatus(id: string) {
+    setTasks(tasks.map(task => {
+      if (task.id === id) {
+        return { ...task, isCompleted: !task.isCompleted };
+      }
+      return task;
+    }));
+  }
+
   return (
     <>
       <NewTask newTask={createNewTask} />
@@ -41,9 +50,8 @@ export function TaskList() {
             {tasks.map((task) => (
               <Task
                 key={task.id}
-                title={task.title}
-                isCompleted={task.isCompleted}
-                onComplete={() => { }}
+                task={task}
+                onComplete={changeTaskStatus}
                 onDelete={() => { }}
               />
             ))}

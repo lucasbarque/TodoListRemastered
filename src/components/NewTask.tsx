@@ -18,11 +18,13 @@ export function NewTask({ newTask }: NewTaskProps) {
     event.preventDefault();
 
     newTask(newTaskText);
+
+    setNewTaskText('');
   }
 
   return (
     <form className={styles.container} onSubmit={handleCreateNewTask}>
-      <input type="text" placeholder="Adicione uma nova tarefa" onChange={handleNewTaskChange} />
+      <input type="text" value={newTaskText} placeholder="Adicione uma nova tarefa" onChange={handleNewTaskChange} />
       <button type='submit'>
         Criar
         <img src={plusImg} />
