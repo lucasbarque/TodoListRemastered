@@ -6,6 +6,10 @@
 <!-- Title -->
 <h1 align="center"> TODO List Remastered </h1>
 
+## 🔥 Teste você mesmo
+
+[![Deploy with Vercel](https://vercel.com/button)](https://todo-list-remastered.vercel.app/)
+
 <!-- Sobre o Projeto -->
 
 ## 🧐 Sobre o Projeto
